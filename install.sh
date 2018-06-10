@@ -1,4 +1,14 @@
+# 判断环境变量是否存在
+if [ $GOPATH ];then  
+    echo "GOPATH = $GOPATH"  
+else  
+    echo "GOPATH IS NOT EXISTS"  
+	exit
+fi
+
+mkdir -p $GOPATH/src
 cd $GOPATH/src
+
 mkdir -p golang.org/x
 cd golang.org/x
 
@@ -16,5 +26,3 @@ go get -u github.com/newhook/go-symbols
 go get -u github.com/rogpeppe/godef
 go get -u github.com/sqs/goreturns
 go get -u github.com/derekparker/delve/cmd/dlv
-
-cd -
